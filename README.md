@@ -1,18 +1,26 @@
 # rustdesk-skills
 
-`jhs512-rust-desk:listen` — 휴대폰에서 말하는 음성을 입력받도록 RustDesk 수신 통화를 수락하고, 3초 후 오디오 입력 메뉴(`Audio input`)에서 ‘시스템 소리’를 선택합니다.
+`jhs512-rust-desk:listen` — 휴대폰에서 말하는 음성을 입력받도록 RustDesk 수신 통화를 수락하고 오디오 입력 메뉴(`Audio input`)에서 ‘시스템 소리’를 선택합니다.
+
+## 동작 순서 (1초 간격 고속 실행)
+
+1. `Move(loc=[1248, 465])` — `수락` 버튼 위치로 이동
+2. `Wait(duration=1)` — 1초 대기
+3. `Click(loc=[1248, 465])` — `수락` 클릭
+4. `Wait(duration=1)` — 1초 대기
+5. `Click(loc=[1248, 465])` — `Audio input`으로 변한 버튼 다시 클릭
+6. `Wait(duration=1)` — 1초 대기
+7. `Click(loc=[1310, 468])` — `시스템 소리` 클릭
 
 ## 필수 의존성
 
-**macos-mcp(맥 MCP)에 의존합니다.** 각 호스트에 MCP를 별도로 연결해야 합니다. 필수 도구는 `Snapshot`, `Click`, `Wait`이며 macOS 접근성·화면 기록 권한이 필요합니다. 스킬의 `agents/openai.yaml`에도 MCP 의존성을 선언했습니다. 이 선언은 MCP 자동 설치 설정이 아닙니다.
+**macos-mcp(맥 MCP)에 의존합니다.** 각 호스트에 MCP를 별도로 연결해야 합니다. 필수 도구는 `Move`, `Click`, `Wait`이며 macOS 접근성·화면 기록 권한이 필요합니다. 스킬의 `agents/openai.yaml`에도 MCP 의존성을 선언했습니다. 이 선언은 MCP 자동 설치 설정이 아닙니다.
 
-macOS의 RustDesk 연결 창과 휴대폰에서 걸려온 수신 통화 또는 진행 중인 통화가 필요합니다.
+macOS의 RustDesk 연결 창과 휴대폰에서 걸려온 수신 통화가 필요합니다.
 
 ## 호출
 
 `jhs512-rust-desk:listen`
-
-이름만 논의하거나 사용법을 묻는 요청은 실행하지 않습니다. 통화가 없으면 발신하지 않고 상태를 알립니다. 이미 ‘시스템 소리’가 선택되어 있으면 그대로 둡니다.
 
 ## 설치
 
@@ -25,9 +33,9 @@ Claude Code 플러그인:
 
 플러그인 명령은 `/jhs512-rust-desk:listen`입니다.
 
-Codex 전역 스킬은 `~/.codex/skills/<skill-folder>/`, Antigravity 전역 스킬은 `~/.gemini/config/skills/<skill-folder>/`에 설치합니다. 각 폴더에 이 저장소의 `skills/listen/` 내용을 넣습니다. 독립 스킬로 설치할 때 콜론 호출어는 자연어 트리거이며 호스트 명령어 등록과는 다릅니다. 독립 설치의 명시적 호출 식별자는 SKILL.md의 name 값입니다.
+Codex 전역 스킬은 `~/.codex/skills/<skill-folder>/`, Antigravity 전역 스킬은 `~/.gemini/config/skills/<skill-folder>/`에 설치합니다. 각 폴더에 이 저장소의 `skills/listen/` 내용을 넣습니다.
 
-Antigravity의 MCP는 `~/.gemini/config/mcp_config.json`에 별도로 등록합니다. 이 파일에 기존 서버가 있으면 항목을 병합하세요. macos-mcp의 실제 실행 경로를 사용합니다.
+Antigravity의 MCP는 `~/.gemini/config/mcp_config.json`에 별도로 등록합니다:
 
 ```json
 {
@@ -39,10 +47,6 @@ Antigravity의 MCP는 `~/.gemini/config/mcp_config.json`에 별도로 등록합�
   }
 }
 ```
-
-설치 후 호스트에서 스킬 및 MCP 설정을 다시 로드하거나 새 대화를 시작하세요. MCP 도구 연결을 확인한 다음 실행합니다.
-
-[Antigravity 스킬 문서](https://antigravity.google/docs/skills) · [MCP 문서](https://antigravity.google/docs/mcp)
 
 ## 구조
 
