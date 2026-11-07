@@ -1,12 +1,12 @@
 # rustdesk-skills
 
-`jhs512-rust-desk:listen` — 휴대폰에서 말하는 음성을 입력받도록 파세오 수신 통화를 수락하고, 3초 후 오디오 입력 메뉴에서 ‘시스템 소리’를 선택합니다.
+`jhs512-rust-desk:listen` — 휴대폰에서 말하는 음성을 입력받도록 RustDesk 수신 통화를 수락하고, 3초 후 오디오 입력 메뉴(`Audio input`)에서 ‘시스템 소리’를 선택합니다.
 
 ## 필수 의존성
 
-**macos-mcp(맥 MCP)에 의존합니다.** 각 호스트에 MCP를 별도로 연결해야 합니다. 필수 도구는 `Snapshot`, `App`, `Click`, `Wait`이며 macOS 접근성·화면 기록 권한이 필요합니다. 스킬의 `agents/openai.yaml`에도 MCP 의존성을 선언했습니다. 이 선언은 MCP 자동 설치 설정이 아닙니다.
+**macos-mcp(맥 MCP)에 의존합니다.** 각 호스트에 MCP를 별도로 연결해야 합니다. 필수 도구는 `Snapshot`, `Click`, `Wait`이며 macOS 접근성·화면 기록 권한이 필요합니다. 스킬의 `agents/openai.yaml`에도 MCP 의존성을 선언했습니다. 이 선언은 MCP 자동 설치 설정이 아닙니다.
 
-macOS의 Paseo 앱과 휴대폰에서 걸려온 수신 통화 또는 진행 중인 통화가 필요합니다. 저장소 이름과 호출 네임스페이스에 rustdesk가 들어가지만, 현재 스킬이 조작하는 앱은 Paseo입니다.
+macOS의 RustDesk 연결 창과 휴대폰에서 걸려온 수신 통화 또는 진행 중인 통화가 필요합니다.
 
 ## 호출
 
@@ -50,5 +50,3 @@ Antigravity의 MCP는 `~/.gemini/config/mcp_config.json`에 별도로 등록합�
 - `skills/listen/agents/openai.yaml`: 표시 이름, 호출 예와 MCP 의존성
 - `plugin.json`: 포터블 플러그인 메타데이터
 - `.claude-plugin/`: Claude Code 플러그인 및 마켓플레이스 메타데이터
-
-현재 검증 범위는 스킬 형식·패키지 메타데이터·MCP 초기화 및 도구 목록 확인입니다. 실제 수신 통화를 사용한 종단 간 동작은 별도 실행이 필요합니다.
