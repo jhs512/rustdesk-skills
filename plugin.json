@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "jhs512-rust-desk",
+  "version": "0.1.0",
+  "description": "macos-mcp 기반 휴대폰 음성 입력 설정",
+  "repository": "https://github.com/jhs512/rustdesk-skills",
+  "author": {
+    "name": "jhs512"
+  }
+}

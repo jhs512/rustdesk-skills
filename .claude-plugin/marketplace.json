@@ -1,0 +1,13 @@
+{
+  "name": "rustdesk-skills",
+  "owner": {
+    "name": "jhs512"
+  },
+  "plugins": [
+    {
+      "name": "jhs512-rust-desk",
+      "source": "./",
+      "description": "macos-mcp 기반 휴대폰 음성 입력 설정"
+    }
+  ]
+}

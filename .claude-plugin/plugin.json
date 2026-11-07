@@ -1,0 +1,8 @@
+{
+  "name": "jhs512-rust-desk",
+  "version": "0.1.0",
+  "description": "휴대폰 음성을 입력받는 macos-mcp 기반 통화 설정 스킬",
+  "author": {
+    "name": "jhs512"
+  }
+}

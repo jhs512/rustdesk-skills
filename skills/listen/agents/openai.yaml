@@ -1,0 +1,11 @@
+interface:
+  display_name: "jhs512-rust-desk:listen"
+  short_description: "맥 MCP로 파세오 통화를 수락하고 휴대폰 음성을 입력받도록 설정"
+  default_prompt: "$listen 스킬로 휴대폰 음성을 입력받도록 통화를 수락하고 3초 뒤 시스템 소리를 선택해 줘."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "macos-mcp"
+      description: "필수 맥 MCP: Snapshot, App, Click, Wait 및 macOS 접근성·화면 기록 권한"
+policy:
+  allow_implicit_invocation: true
