@@ -2,15 +2,18 @@
 
 `jhs512-rust-desk:listen` — 휴대폰에서 말하는 음성을 입력받도록 RustDesk 수신 통화를 수락하고 오디오 입력 메뉴(`Audio input`)에서 ‘시스템 소리’를 선택합니다.
 
-## 동작 순서 (1초 간격 고속 실행)
+## 동작 순서 (고속 실행)
 
-1. `Move(loc=[1248, 465])` — `수락` 버튼 위치로 이동
-2. `Wait(duration=1)` — 1초 대기
-3. `Click(loc=[1248, 465])` — `수락` 클릭
-4. `Wait(duration=1)` — 1초 대기
-5. `Click(loc=[1248, 465])` — `Audio input`으로 변한 버튼 다시 클릭
-6. `Wait(duration=1)` — 1초 대기
-7. `Click(loc=[1310, 468])` — `시스템 소리` 클릭
+1. `Click(loc=[1248, 400])` — RustDesk 연결 창 빈 공간 클릭(창 포커스 활성화)
+2. `Move(loc=[1248, 458])` — `수락` 버튼 위치로 이동
+3. `Wait(duration=1)` — 1초 대기
+4. `Click(loc=[1248, 458])` — `수락` 클릭
+5. `Wait(duration=2)` — 2초 대기
+6. `Click(loc=[1248, 458])` — `Audio input`으로 변한 버튼 다시 클릭
+7. `Wait(duration=1)` — 1초 대기
+8. `Move(loc=[1300, 448])` — 팝오버의 `시스템 소리` 항목으로 이동
+9. `Wait(duration=1)` — 1초 대기
+10. `Click(loc=[1300, 448])` — `시스템 소리` 클릭
 
 ## 필수 의존성
 
